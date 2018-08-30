@@ -1,0 +1,31 @@
+Resources:
+  CatalogProductsTemplatesBucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketEncryption:
+        ServerSideEncryptionConfiguration:
+          -
+            ServerSideEncryptionByDefault:
+              SSEAlgorithm: 'aws:kms'
+      BucketName:
+        'Fn::Join':
+          - '-'
+          -
+            - catalog
+            - product
+            - cloudformation
+            - templates
+  CatalogProductsTemplatesBucketPolicy:
+    Type: 'AWS::S3::BucketPolicy'
+    Properties:
+      Bucket: !Ref CatalogProductsTemplatesBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement: 
+          - Sid: Allow cloudformation service to read bucket
+            Effect: "Allow"
+            Action:
+              - s3:GetObject
+            Resource: !Join ["", ["arn:aws:s3:::", !Ref CatalogProductsTemplatesBucket, "/*"]]
+            Principal:
+              AWS: !Join ["", ["arn:aws:iam::",!Ref "AWS::AccountId",":root"]]
