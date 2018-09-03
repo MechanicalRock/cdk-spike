@@ -1,12 +1,13 @@
 import cdk = require("@aws-cdk/cdk");
 import { cloudformation as cfn } from "@aws-cdk/aws-servicecatalog";
 
-export class MyS3BucketProduct extends cdk.Stack {
-    constructor(parent: cdk.App, logicalName: string, props?: cdk.StackProps) {
-        super(parent, logicalName, props);
+export class MyS3BucketProduct {
+    physicalId: string;
+    constructor(parent: cdk.Stack) {
+        this.physicalId = this.create(parent);
     }
 
-    create() {
+    create(parent: cdk.Construct): string {
         const artifactParameters: Array<cfn.CloudFormationProductResource.ProvisioningArtifactPropertiesProperty>
             = [
                 {
@@ -23,16 +24,16 @@ export class MyS3BucketProduct extends cdk.Stack {
                 }
             ];
 
-        const s3BucketProduct = new cfn.CloudFormationProductResource(this, "MyS3BucketProduct", {
+        const s3BucketProduct = new cfn.CloudFormationProductResource(parent, "MyS3BucketProduct", {
             cloudFormationProductName: "MyS3BucketProduct",
             owner: "Joe Bloggs",
             provisioningArtifactParameters: artifactParameters
         });
 
-        const productId = s3BucketProduct.ref.toString();
-        new cdk.Output(this, "MyS3BucketProductId", {
-            export: "MyS3BucketProductId",
-            value: productId
-        });
+        return s3BucketProduct.ref.toString();
+    }
+
+    getPhysicalId() {
+        return this.physicalId;
     }
 }
