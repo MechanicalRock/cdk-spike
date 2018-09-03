@@ -5,6 +5,3 @@ export class BasePathBuilder {
         return "https://" + this.bucketName + ".s3.amazonaws.com/";
     }
 }
-
-
-
