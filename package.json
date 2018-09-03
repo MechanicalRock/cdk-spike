@@ -2,10 +2,11 @@
   "name": "cdk-spike",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w"
+    "build": "rm -rf dist && tsc",
+    "watch": "tsc -w",
+    "synth:products": "node dist/SynthProductTemplates.js",
+    "deploy:catalog": "node dist/DeployCatalog.js"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +15,9 @@
     "@aws-cdk/aws-s3": "^0.8.2",
     "@aws-cdk/aws-servicecatalog": "^0.8.2",
     "@aws-cdk/cdk": "^0.8.2",
-    "@types/node": "^10.7.1"
+    "@types/fs-extra": "^5.0.4",
+    "@types/node": "^10.7.1",
+    "aws-cdk": "^0.8.2",
+    "fs-extra": "^7.0.0"
   }
 }

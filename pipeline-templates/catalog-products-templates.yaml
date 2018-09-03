@@ -15,6 +15,7 @@ Resources:
             - product
             - cloudformation
             - templates
+            - sandbox
   CatalogProductsTemplatesBucketPolicy:
     Type: 'AWS::S3::BucketPolicy'
     Properties:
@@ -22,7 +23,7 @@ Resources:
       PolicyDocument:
         Version: "2012-10-17"
         Statement: 
-          - Sid: Allow cloudformation service to read bucket
+          - Sid: Allow only the current aws account to read objects
             Effect: "Allow"
             Action:
               - s3:GetObject

@@ -1,5 +1,6 @@
 #! /bin/bash
 # set -xe
+# Assume role script - calls sts and exports temp creds as env vars
 unset AWS_CREDENTIAL_EXPIRATION
 unset AWS_SESSION_TOKEN
 unset AWS_ACCESS_KEY_ID
@@ -26,3 +27,6 @@ expiration=$(echo $response | jq -r '.Credentials.Expiration')
 echo "Expiration is: " $expiration
 export AWS_CREDENTIAL_EXPIRATION=$expiration
 export AWS_REGION=ap-southeast-2
+
+# Exports the PRODUCT_TEMPLATES_S3_BUCKET_NAME env variable
+export PRODUCT_TEMPLATES_S3_BUCKET_NAME=catalog-product-cloudformation-templates-sandbox
