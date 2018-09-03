@@ -1,7 +1,7 @@
 import cdkTk = require("aws-cdk");
 import cdk = require("@aws-cdk/cdk");
 import cxapi = require("@aws-cdk/cx-api")
-import { MyServiceCatalog } from "../MyServiceCatalogStack";
+import { MyServiceCatalog } from "./catalog/MyServiceCatalogStack";
 import { SDK } from "aws-cdk";
 const catalogStackName = "MyServiceCatalogStack";
 const stackNames = [catalogStackName];
@@ -17,12 +17,6 @@ initStacks();
 generateTemplates();
 // Deploy all the service catalog cfn stacks
 deployCatalog();
-
-
-
-
-
-
 
 
 // Functions

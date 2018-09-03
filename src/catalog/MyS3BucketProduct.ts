@@ -1,5 +1,6 @@
 import cdk = require("@aws-cdk/cdk");
 import { cloudformation as cfn } from "@aws-cdk/aws-servicecatalog";
+import { BasePathBuilder } from "../utils/BasePathBuilder";
 
 export class MyS3BucketProduct {
     physicalId: string;
@@ -8,18 +9,14 @@ export class MyS3BucketProduct {
     }
 
     create(parent: cdk.Construct): string {
+        const basePath = BasePathBuilder.build();
+
         const artifactParameters: Array<cfn.CloudFormationProductResource.ProvisioningArtifactPropertiesProperty>
             = [
                 {
                     name: "v1",
                     info: {
-                        "LoadTemplateFromURL": "https://s3-ap-southeast-2.amazonaws.com/catalog-product-cloudformation-templates/v1/MyS3BucketStack.template.yaml"
-                    }
-                },
-                {
-                    name: "v2",
-                    info: {
-                        "LoadTemplateFromURL": "https://s3-ap-southeast-2.amazonaws.com/catalog-product-cloudformation-templates/v2/MyS3BucketStack.template.yaml"
+                        "LoadTemplateFromURL": basePath + "s3-bucket-product/v1/MyS3BucketStack.template.yaml"
                     }
                 }
             ];

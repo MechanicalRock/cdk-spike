@@ -1,5 +1,5 @@
 import cdk = require("@aws-cdk/cdk");
-import { MyS3BucketStack } from "../MyS3BucketStack";
+import { MyS3BucketStack } from "./product_definitions/MyS3BucketStack";
 import fs = require("fs-extra");
 
 

@@ -2,12 +2,10 @@
   "name": "cdk-spike",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf dist && tsc",
     "watch": "tsc -w",
     "synth:products": "node dist/SynthProductTemplates.js",
-    "upload:products": "node dist/S3Uploader.js",
     "deploy:catalog": "node dist/DeployCatalog.js"
   },
   "keywords": [],
