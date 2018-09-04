@@ -1,0 +1,1 @@
+{"Resources":{"MyS3Bucket4646DF6F":{"Type":"AWS::S3::Bucket","Properties":{"BucketEncryption":{"ServerSideEncryptionConfiguration":[{"ServerSideEncryptionByDefault":{"SSEAlgorithm":"aws:kms"}}]},"BucketName":{"Fn::Join":["",["my-s3-bucket-",{"Ref":"AWS::AccountId"}]]},"VersioningConfiguration":{"Status":"Enabled"}}}}}
