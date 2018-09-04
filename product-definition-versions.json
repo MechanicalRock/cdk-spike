@@ -1,0 +1,6 @@
+{
+	"MyS3BucketStack": {
+		"fileName": "MyS3BucketStack.template.yaml",
+		"version": "v2.1"
+	}
+}
