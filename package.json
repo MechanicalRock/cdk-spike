@@ -6,7 +6,9 @@
     "build": "rm -rf dist && tsc",
     "watch": "tsc -w",
     "synth:products": "node dist/SynthProductTemplates.js",
-    "deploy:catalog": "node dist/DeployCatalog.js"
+    "deploy:catalog": "node dist/DeployCatalog.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +20,8 @@
     "@types/fs-extra": "^5.0.4",
     "@types/node": "^10.7.1",
     "aws-cdk": "^0.29.0",
-    "fs-extra": "^7.0.0"
-  }
+    "fs-extra": "^7.0.0",
+    "snyk": "^1.230.5"
+  },
+  "snyk": true
 }
