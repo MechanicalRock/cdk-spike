@@ -8,3 +8,10 @@ patch:
         patched: '2019-10-04T02:46:13.134Z'
     - aws-cdk > proxy-agent > pac-proxy-agent > https-proxy-agent:
         patched: '2019-10-04T02:46:13.134Z'
+  SNYK-JS-LODASH-450202:
+    - aws-cdk > table > lodash:
+        patched: '2019-07-04T02:47:12.076Z'
+    - aws-cdk > @aws-cdk/cloudformation-diff > table > lodash:
+        patched: '2019-07-04T02:47:12.076Z'
+    - aws-cdk > archiver > async > lodash:
+        patched: '2019-07-04T02:47:12.076Z'
