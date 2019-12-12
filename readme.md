@@ -1,4 +1,8 @@
-#CDK flow: 
+# Archived Repository
+This repository has been archived and should be considered for reference purposes only.
+The project is not maintained and may contain known security vulnerabilities.
+
+# CDK flow: 
 #NB: These are steps you'd execute to set up/ deploy a new CDK project. They're not applicable to this project anymore
 #For project specific steps, pls refer to Build & Deployment flow below.
 - Create a typescript project
